@@ -4,14 +4,20 @@
  * @type {string[]}
  **/
 
-export const publicRoutes = ["/"];
+export const publicRoutes = ["/", "/newVerification"];
 /**
  * An array of routes that are used authentication
  * These routes will redirect logged in users to /settings
  * @type {string[]}
  */
 
-export const authRoutes = ["/login", "/register", "/error"];
+export const authRoutes = [
+  "/login",
+  "/register",
+  "/error",
+  "/reset",
+  "/newPassword",
+];
 
 /**
  * The prefiX for API authentication routes
