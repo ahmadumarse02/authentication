@@ -4,6 +4,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/db";
 import authConfig from "@/auth.config";
 import { UserRole } from "@prisma/client";
+import { getTwoFactorConfirmationByUserId } from "@/data/twoFactorConfirmation";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   pages: {
@@ -26,6 +27,22 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       const exitingUser = await getUserById(user.id);
 
       if (!exitingUser?.emailVerified) return false;
+
+      //2FA Code
+
+      if (exitingUser.isTwoFactorEnabled) {
+        const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(
+          exitingUser.id
+        );
+
+        console.log(twoFactorConfirmation);
+
+        if (!twoFactorConfirmation) return false;
+
+        await prisma.twoFactorConfirmation.delete({
+          where: { id: twoFactorConfirmation.id },
+        });
+      }
 
       return true;
     },
