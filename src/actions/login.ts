@@ -11,6 +11,9 @@ import {
   generateTwoFactorToken,
 } from "@/lib/tokens";
 import { sendVerificationEmail, sendTwoFactorTokenEmail } from "@/lib/email";
+import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
+import { prisma } from "@/lib/db";
+import { getTwoFactorConfirmationByUserId } from "@/data/twoFactorConfirmation";
 
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validateFields = LoginSchema.safeParse(values);
@@ -41,6 +44,40 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
   if (exitingUser.isTwoFactorEnabled && exitingUser.email) {
     if (code) {
+      const twoFactorToken = await getTwoFactorTokenByEmail(exitingUser.email);
+      if (!twoFactorToken) {
+        return { error: "Invalid code!" };
+      }
+
+      if (twoFactorToken.token !== code) {
+        return { error: "Invalid code!" };
+      }
+
+      const hasExpired = new Date(twoFactorToken.expires) < new Date();
+
+      if (hasExpired) {
+        return { error: "Code expired!" };
+      }
+
+      await prisma.twoFactorToken.delete({
+        where: { id: twoFactorToken.id },
+      });
+
+      const exitingConfirmation = await getTwoFactorConfirmationByUserId(
+        exitingUser.id
+      );
+
+      if (exitingConfirmation) {
+        await prisma.twoFactorConfirmation.delete({
+          where: { id: exitingConfirmation.id },
+        });
+      }
+
+      await prisma.twoFactorConfirmation.create({
+        data: {
+          userId: exitingUser.id,
+        },
+      });
     } else {
       const twoFactorToken = await generateTwoFactorToken(exitingUser.email);
 

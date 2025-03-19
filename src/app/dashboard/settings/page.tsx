@@ -1,13 +1,15 @@
-import React from "react";
-import { auth } from "@/auth";
+"use client";
 
-async function settings() {
-  const session = await auth();
+import { useCurrentUser } from "@/hooks/useCurrentUser";
+
+
+function Settings() {
+  const user = useCurrentUser()
   return (
-    <div className="max-w-full text-sm text-orange-600">
-      {JSON.stringify(session)}
+    <div className="max-w-full text-sm text-white">
+      {JSON.stringify(user)}
     </div>
   );
 }
 
-export default settings;
+export default Settings;
