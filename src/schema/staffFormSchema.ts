@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-// Define the schema
 export const staffFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -11,7 +10,7 @@ export const staffFormSchema = z.object({
   designation: z.enum(["hr", "it", "operations"]),
   staffId: z.string().optional(),
   officialEmail: z.string().email("Invalid official email").optional(),
+  image: z.instanceof(File).optional(), // Add image field
 });
 
-// Infer the type from the schema
 export type StaffFormValues = z.infer<typeof staffFormSchema>;

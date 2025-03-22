@@ -1,90 +1,89 @@
-"use client";
+// "use client";
 
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+// import { useEffect, useState } from "react";
+// import { getAllStaff } from "@/actions/staff/allStaff";
+// import {
+//   Table,
+//   TableBody,
+//   TableCaption,
+//   TableCell,
+//   TableHead,
+//   TableHeader,
+//   TableRow,
+// } from "@/components/ui/table";
+// import { z } from "zod";
+// import { staffFormSchema } from "@/schema/staffFormSchema";
 
-export default function StaffTable() {
-  const staffData = [
-    {
-      sn: "01",
-      firstName: "Sandra",
-      lastName: "Williams",
-      gender: "Female",
-      staffId: "0246AHR",
-      phoneNumber: "08130000000",
-      role: "Admin",
-      designation: "Human Resources",
-      action: "View more",
-    },
-    {
-      sn: "02",
-      firstName: "Abubakar",
-      lastName: "Ibrahim",
-      gender: "Male",
-      staffId: "0251ITO",
-      phoneNumber: "07062000033",
-      role: "LT",
-      designation: "Operations",
-      action: "View more",
-    },
-    {
-      sn: "03",
-      firstName: "Ikechukwu",
-      lastName: "Ugbonna",
-      gender: "Male",
-      staffId: "0340ITO",
-      phoneNumber: "08130000000",
-      role: "LT",
-      designation: "Operations",
-      action: "View more",
-    },
-  ];
+// export default function StaffTable() {
+//   const [staffData, setStaffData] = useState<z.infer<typeof staffFormSchema>[]>([]);
 
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">All Staff</h1>
-      <Table>
-        <TableCaption>A list of all staff members.</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead>S/N</TableHead>
-            <TableHead>First Name</TableHead>
-            <TableHead>Last Name</TableHead>
-            <TableHead>Gender</TableHead>
-            <TableHead>Staff ID</TableHead>
-            <TableHead>Phone Number</TableHead>
-            <TableHead>Role</TableHead>
-            <TableHead>Designation</TableHead>
-            <TableHead>Action</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {staffData.map((staff) => (
-            <TableRow key={staff.sn}>
-              <TableCell>{staff.sn}</TableCell>
-              <TableCell>{staff.firstName}</TableCell>
-              <TableCell>{staff.lastName}</TableCell>
-              <TableCell>{staff.gender}</TableCell>
-              <TableCell>{staff.staffId}</TableCell>
-              <TableCell>{staff.phoneNumber}</TableCell>
-              <TableCell>{staff.role}</TableCell>
-              <TableCell>{staff.designation}</TableCell>
-              <TableCell>
-                <button className="text-blue-600 hover:underline">
-                  {staff.action}
-                </button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
-  );
-}
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState<string | null>(null);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const data = await getAllStaff();
+//         console.log("Fetched Staff Data:", data);
+//         setStaffData(data);
+//       } catch (err) {
+//         console.error("Error fetching staff data:", err);
+//         setError(err instanceof Error ? err.message : "Unknown error occurred");
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+  
+//     fetchData();
+//   }, []);
+
+//   if (loading) {
+//     return <div className="p-4">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="p-4 text-red-500">Error: {error}</div>;
+//   }
+
+//   return (
+//     <div className="p-4">
+//       <h1 className="text-2xl font-bold mb-4">All Staff</h1>
+//       <Table>
+//         <TableCaption>A list of all staff members.</TableCaption>
+//         <TableHeader>
+//           <TableRow>
+//             <TableHead>S/N</TableHead>
+//             <TableHead>First Name</TableHead>
+//             <TableHead>Last Name</TableHead>
+//             <TableHead>Gender</TableHead>
+//             <TableHead>Staff ID</TableHead>
+//             <TableHead>Phone Number</TableHead>
+//             <TableHead>Role</TableHead>
+//             <TableHead>Designation</TableHead>
+//             <TableHead>Action</TableHead>
+//           </TableRow>
+//         </TableHeader>
+//         <TableBody>
+//           {staffData.map((staff, index) => (
+//             <TableRow key={index}>
+//               <TableCell>{index + 1}</TableCell>
+//               <TableCell>{staff.firstName}</TableCell>
+//               <TableCell>{staff.lastName}</TableCell>
+//               <TableCell>{staff.gender}</TableCell>
+//               <TableCell>{staff.staffId}</TableCell>
+//               <TableCell>{staff.phone}</TableCell>
+//               <TableCell>{staff.role}</TableCell>
+//               <TableCell>{staff.designation}</TableCell>
+//               <TableCell>
+//                 <button className="text-blue-600 hover:underline">
+//                   Edit
+//                 </button>
+//               </TableCell>
+//             </TableRow>
+//           ))}
+//         </TableBody>
+//       </Table>
+//     </div>
+//   );
+// }
+
