@@ -1,3 +1,5 @@
+"use server";
+
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
