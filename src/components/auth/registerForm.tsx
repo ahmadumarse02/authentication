@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useTransition, useState } from "react";
-import CardWrapper from "./cardWrapper";
 import * as z from "zod";
+import CardWrapper from "@/components/auth/cardWrapper";
 import { RegisterSchema } from "@/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,8 +10,8 @@ import {
   Form,
   FormControl,
   FormField,
-  FormLabel,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -19,13 +19,15 @@ import { Button } from "@/components/ui/button";
 import { register } from "@/actions/register";
 import { FormError } from "@/components/FormError";
 import { FormSuccess } from "@/components/FormSuccess";
+import { useRouter } from "next/navigation";
 
-const RegisterForm = () => {
+const RegisterPage = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
-  const form = useForm<z.infer<typeof RegisterSchema>>({
+  const form = useForm({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
       name: "",
@@ -40,96 +42,90 @@ const RegisterForm = () => {
 
     startTransition(() => {
       register(values).then((data) => {
-        console.log("Register API response:", data);
-
-        if (!data.success) {
-          setError(data.errors);
+        if (data?.error) {
+          setError(data.error);
+        } else if (data?.twoFactor) {
+          router.push(`/twoFactor?email=${data.email}`);
         } else {
-          setSuccess(data.success);
-          form.reset();
+          setSuccess("Registration successful!");
         }
       });
     });
   };
 
   return (
-    <>
-      <CardWrapper
-        headerLabel="Welcome back"
-        backButtonLabel="Already have an account"
-        backButtonHref="/login"
-        showSocial
-      >
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-4">
-              {/* name field */}
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>username</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter the username"
-                        {...field}
-                        disabled={isPending}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+    <CardWrapper
+      headerLabel="Create an account"
+      backButtonLabel="Already have an account?"
+      backButtonHref="/login"
+    >
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="space-y-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter your name"
+                      {...field}
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              {/* email field */}
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter the email"
-                        {...field}
-                        disabled={isPending}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter your email"
+                      {...field}
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              {/* password field */}
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="******"
-                        {...field}
-                        disabled={isPending}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormError message={error} />
-            <FormSuccess message={success} />
-            <Button type="submit" className="w-full" disabled={isPending}>
-              Login
-            </Button>
-          </form>
-        </Form>
-      </CardWrapper>
-    </>
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="password"
+                      placeholder="******"
+                      {...field}
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormError message={error} />
+          <FormSuccess message={success} />
+          <Button type="submit" className="w-full" disabled={isPending}>
+            Create account
+          </Button>
+        </form>
+      </Form>
+    </CardWrapper>
   );
 };
 
-export default RegisterForm;
+export default RegisterPage;

@@ -1,6 +1,6 @@
 "use server";
 
-import { gerPasswordResetTokenByToken } from "@/data/passwordResetToken";
+import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
 import { getUserByEmail } from "@/data/user";
 import { NewPasswordSchema } from "@/schema";
 import * as z from "zod";
@@ -23,26 +23,25 @@ export const newPassword = async (
 
   const { password } = validateFields.data;
 
-  const exitingToken = await gerPasswordResetTokenByToken(token);
-  if (!exitingToken) {
+  const twoFactorToken = await getTwoFactorTokenByEmail(token);
+  if (!twoFactorToken) {
     return { error: "Invalid token!" };
   }
 
-  const hasExpired = new Date(exitingToken.expires) < new Date();
-
+  const hasExpired = new Date(twoFactorToken.expires) < new Date();
   if (hasExpired) {
     return { error: "Token has expired!" };
   }
 
-  const exitingUser = await getUserByEmail(exitingToken.email);
-  if (!exitingUser) {
+  const existingUser = await getUserByEmail(twoFactorToken.email);
+  if (!existingUser) {
     return { error: "Email does not exist" };
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
   await prisma.user.update({
-    where: { id: exitingUser.id },
+    where: { id: existingUser.id },
     data: { password: hashedPassword },
   });
 

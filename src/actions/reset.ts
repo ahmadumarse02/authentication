@@ -3,30 +3,26 @@
 import * as z from "zod";
 import { ResetSchema } from "@/schema";
 import { getUserByEmail } from "@/data/user";
-import { sendPasswordResetEmail } from "@/lib/email";
-import { generatePasswordToken } from "@/lib/tokens";
+import { generateTwoFactorToken } from "@/lib/tokens";
+import { sendTwoFactorTokenEmail } from "@/lib/email";
 
 export const reset = async (values: z.infer<typeof ResetSchema>) => {
-  const validatedField = ResetSchema.safeParse(values);
+  const validateFields = ResetSchema.safeParse(values);
 
-  if (!validatedField.success) {
+  if (!validateFields.success) {
     return { error: "Invalid email!" };
   }
 
-  const { email } = validatedField.data;
+  const { email } = validateFields.data;
 
-  const exitingUser = await getUserByEmail(email);
+  const existingUser = await getUserByEmail(email);
 
-  if (!exitingUser) {
-    return { error: "Email is not found!" };
+  if (!existingUser) {
+    return { error: "Email not found!" };
   }
 
-  const passwordResetToken = await generatePasswordToken(email);
+  const twoFactorToken = await generateTwoFactorToken(email);
+  await sendTwoFactorTokenEmail(twoFactorToken.email, twoFactorToken.token);
 
-  await sendPasswordResetEmail(
-    passwordResetToken.email,
-    passwordResetToken.token
-  );
-
-  return { success: "Reset email sent!" };
+  return { success: "Two-factor authentication code sent!" };
 };

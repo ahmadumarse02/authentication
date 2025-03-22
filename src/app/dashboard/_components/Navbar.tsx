@@ -1,5 +1,5 @@
 import React from 'react'
-import UserButton from '@/components/auth/userButton'
+import { UserButton } from '@/components/auth/userButton'
 
 const Navbar = () => {
   return (

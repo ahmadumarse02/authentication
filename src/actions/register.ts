@@ -5,36 +5,36 @@ import bcrypt from "bcryptjs";
 import { RegisterSchema } from "@/schema";
 import { prisma } from "@/lib/db";
 import { getUserByEmail } from "@/data/user";
-import { generateVerificationToken } from "@/lib/tokens";
-import { sendVerificationEmail } from "@/lib/email";
+import { generateTwoFactorToken } from "@/lib/tokens";
+import { sendTwoFactorTokenEmail } from "@/lib/email";
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
-  console.log(values);
-
   const validateFields = RegisterSchema.safeParse(values);
 
   if (!validateFields.success) {
-    return { errors: "Invalid Fields" };
+    return { error: "Invalid Fields" };
   }
 
   const { name, email, password } = validateFields.data;
-  const hashedpassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const existingUser = await getUserByEmail(email);
 
   if (existingUser) {
-    return { errors: "User already exists" };
+    return { error: "User already exists" };
   }
 
   await prisma.user.create({
     data: {
       name,
       email,
-      password: hashedpassword,
+      password: hashedPassword,
+      isTwoFactorEnabled: true,
     },
   });
 
-  const verificationToken = await generateVerificationToken(email);
-  await sendVerificationEmail(verificationToken.email, verificationToken.token);
-  return { success: "Confirmation email send" };
+  const twoFactorToken = await generateTwoFactorToken(email);
+  await sendTwoFactorTokenEmail(twoFactorToken.email, twoFactorToken.token);
+
+  return { twoFactor: true, email };
 };

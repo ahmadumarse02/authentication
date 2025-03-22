@@ -15,17 +15,6 @@ export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
   });
 };
 
-//Verification Email
-export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `${domain}/newVerification?token=${token}`;
-
-  await resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: email,
-    subject: "Confirm your email",
-    html: `<p><a href="${confirmLink}">Here</a> to confirm email</p>`,
-  });
-};
 
 //password reset email
 export const sendPasswordResetEmail = async (email: string, token: string) => {

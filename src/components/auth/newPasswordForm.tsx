@@ -27,7 +27,6 @@ const NewPasswordForm = () => {
   const [isPending, startTransition] = useTransition();
 
   const searchParams = useSearchParams();
-
   const token = searchParams.get("token");
 
   const form = useForm<z.infer<typeof NewPasswordSchema>>({
@@ -50,44 +49,41 @@ const NewPasswordForm = () => {
   };
 
   return (
-    <>
-      <CardWrapper
-        headerLabel="Enter a new password"
-        backButtonLabel="Back to login"
-        backButtonHref="/login"
-      >
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-4">
-              {/* email field */}
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter new password"
-                        {...field}
-                        disabled={isPending}
-                        type="password"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormError message={error} />
-            <FormSuccess message={success} />
-            <Button type="submit" className="w-full" disabled={isPending}>
-              Reset password
-            </Button>
-          </form>
-        </Form>
-      </CardWrapper>
-    </>
+    <CardWrapper
+      headerLabel="Enter a new password"
+      backButtonLabel="Back to login"
+      backButtonHref="/login"
+    >
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="space-y-4">
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter new password"
+                      {...field}
+                      disabled={isPending}
+                      type="password"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormError message={error} />
+          <FormSuccess message={success} />
+          <Button type="submit" className="w-full" disabled={isPending}>
+            Reset password
+          </Button>
+        </form>
+      </Form>
+    </CardWrapper>
   );
 };
 

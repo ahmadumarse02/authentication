@@ -1,40 +1,31 @@
-"use client"
+// src/components/auth/userButton.tsx
+"use client";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { FaUser } from "react-icons/fa"
-import { useCurrentUser } from "@/hooks/useCurrentUser"
-import { Button } from "../ui/button"
-import { logout } from "@/actions/logout"
-import { useTransition } from "react"
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
-const UserButton = () => {
-    const user = useCurrentUser()
-    const [isPending, startTransition] = useTransition()
+export const UserButton = () => {
+  const { data: session } = useSession();
 
-    return (
-        <DropdownMenu>
-            <DropdownMenuTrigger>
-                <Avatar>
-                    <AvatarImage src={user?.image || ""} />
-                    <AvatarFallback className="bg-blue-400">
-                        <FaUser className="text-white" />
-                    </AvatarFallback>
-                </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-                <DropdownMenuItem>
-                    <Button 
-                        onClick={() => startTransition(logout)}
-                        disabled={isPending}
-                        variant="outline"
-                    >
-                        {isPending ? "Logging out..." : "Logout"}
-                    </Button>
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
-    )
-}
+    const handleSignOut = () => {
+        signOut();
+    };
 
-export default UserButton
+    function handleSignIn() {
+        signIn();
+    }
+
+  return (
+    <div>
+      {session?.user ? (
+        <div>
+          <p>Welcome, {session.user.name}</p>
+          <button onClick={handleSignOut}>Sign Out</button>
+        </div>
+      ) : (
+        <button onClick={() => handleSignIn()}>Sign In</button>
+      )}
+    </div>
+  );
+};

@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from "uuid";
 import crypto from "crypto";
 
 import { prisma } from "@/lib/db";
-import { getVerificationTokenByEmail } from "@/data/verificationToken";
 import { gerPasswordResetTokenByEmail } from "@/data/passwordResetToken";
 import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
 
@@ -41,12 +40,12 @@ export const generatePasswordToken = async (email: string) => {
   const exitingToken = await gerPasswordResetTokenByEmail(email);
 
   if (exitingToken) {
-    await prisma.passwordResetTokeen.delete({
+    await prisma.passwordResetToken.delete({
       where: { id: exitingToken.id },
     });
   }
 
-  const passwordResetToken = await prisma.passwordResetTokeen.create({
+  const passwordResetToken = await prisma.passwordResetToken.create({
     data: {
       email,
       token,
@@ -54,30 +53,4 @@ export const generatePasswordToken = async (email: string) => {
     },
   });
   return passwordResetToken;
-};
-
-//Verification token
-export const generateVerificationToken = async (email: string) => {
-  const token = uuidv4();
-  const expires = new Date(new Date().getTime() + 3600 * 1000);
-
-  const exitingToken = await getVerificationTokenByEmail(email);
-
-  if (exitingToken) {
-    await prisma.verificationToken.delete({
-      where: {
-        id: exitingToken.id,
-      },
-    });
-  }
-
-  const verificationToken = await prisma.verificationToken.create({
-    data: {
-      email,
-      token,
-      expires,
-    },
-  });
-
-  return verificationToken;
 };
