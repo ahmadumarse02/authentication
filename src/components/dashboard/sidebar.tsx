@@ -20,7 +20,7 @@ export default function Sidebar() {
             key={item.href}
             href={item.href}
             className={`flex items-center gap-3 p-3 rounded-lg transition ${
-              pathname === item.href
+              pathname.startsWith(item.href)
                 ? "bg-blue-100 text-blue-600"
                 : "text-gray-700 hover:bg-gray-100"
             }`}
