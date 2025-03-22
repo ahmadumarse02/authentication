@@ -2,7 +2,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const domain = process.env.NEXT_PUBLIC_APP_URL
+const domain = process.env.NEXT_PUBLIC_APP_URL;
 
 //twoFactor Email
 
@@ -14,7 +14,6 @@ export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
     html: `<p>Your two factor code: ${token}</p>`,
   });
 };
-
 
 //password reset email
 export const sendPasswordResetEmail = async (email: string, token: string) => {

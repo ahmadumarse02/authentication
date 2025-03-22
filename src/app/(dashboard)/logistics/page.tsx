@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function LogisticsPage() {
-  return (
-    <div>LogisticsPage</div>
-  )
+  return <div>LogisticsPage</div>;
 }
 
-export default LogisticsPage
+export default LogisticsPage;

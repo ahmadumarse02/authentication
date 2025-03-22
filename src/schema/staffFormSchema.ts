@@ -7,10 +7,15 @@ export const staffFormSchema = z.object({
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
   gender: z.enum(["male", "female", "other"]),
   role: z.enum(["admin", "manager", "staff"]),
-  designation: z.enum(["hr", "it", "operations"]),
+  designation: z.enum([
+    "Human Resource Dept.",
+    "Management",
+    "HOD I.T",
+    "HOD Accounts",
+  ]),
   staffId: z.string().optional(),
   officialEmail: z.string().email("Invalid official email").optional(),
-  image: z.instanceof(File).optional(), // Add image field
+  image: z.instanceof(File).optional(),
 });
 
 export type StaffFormValues = z.infer<typeof staffFormSchema>;

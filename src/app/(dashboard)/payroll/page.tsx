@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function PayrollPage() {
-  return (
-    <div>PayrollPage</div>
-  )
+  return <div>PayrollPage</div>;
 }
 
-export default PayrollPage
+export default PayrollPage;

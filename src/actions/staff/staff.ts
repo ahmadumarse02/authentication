@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import path from "path";
 import fs from "fs";
 

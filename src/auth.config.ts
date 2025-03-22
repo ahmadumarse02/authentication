@@ -51,7 +51,10 @@ export default {
       // Include isTwoFactorVerified in the session
       if (session.user) {
         session.user.id = token.sub || user.id;
-        session.user.isTwoFactorVerified = typeof token.isTwoFactorVerified === 'boolean' ? token.isTwoFactorVerified : false;
+        session.user.isTwoFactorVerified =
+          typeof token.isTwoFactorVerified === "boolean"
+            ? token.isTwoFactorVerified
+            : false;
       }
       return session;
     },

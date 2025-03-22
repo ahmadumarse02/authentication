@@ -124,8 +124,11 @@
 
 @layer components {
   /* Custom Gradient Class */
-.bg-gradient-custom {
-  background: linear-gradient(to right, #14add6, #384295); /* Blue to Purple */
-}
-
+  .bg-gradient-custom {
+    background: linear-gradient(
+      to right,
+      #14add6,
+      #384295
+    ); /* Blue to Purple */
+  }
 }

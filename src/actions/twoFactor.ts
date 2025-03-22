@@ -47,6 +47,5 @@ export const verifyTwoFactorToken = async (code: string, email: string) => {
     }
   }
 
-
   return { success: "2FA verification successful!" };
 };

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function OfficeBudgetPage() {
-  return (
-    <div>OfficeBudgetPage</div>
-  )
+  return <div>OfficeBudgetPage</div>;
 }
 
-export default OfficeBudgetPage
+export default OfficeBudgetPage;

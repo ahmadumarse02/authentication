@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function CapacityBuildingPage() {
-  return (
-    <div>CapacityBuildingPage</div>
-  )
+  return <div>CapacityBuildingPage</div>;
 }
 
-export default CapacityBuildingPage
+export default CapacityBuildingPage;

@@ -44,9 +44,9 @@ export function QuickSearchStaffCard() {
           </Select>
         </div>
         <Link href="/staff/add">
-        <Button className="bg-gradient-custom w-full max-w-[180px] h-[46px]">
-          Add New Staff
-        </Button>
+          <Button className="bg-gradient-custom w-full max-w-[180px] h-[46px]">
+            Add New Staff
+          </Button>
         </Link>
       </CardContent>
     </Card>

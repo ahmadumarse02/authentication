@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MemoPage() {
-  return (
-    <div>MemoPage</div>
-  )
+  return <div>MemoPage</div>;
 }
 
-export default MemoPage
+export default MemoPage;

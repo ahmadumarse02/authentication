@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function CircularsPage() {
-  return (
-    <div>CircularsPage</div>
-  )
+  return <div>CircularsPage</div>;
 }
 
-export default CircularsPage
+export default CircularsPage;

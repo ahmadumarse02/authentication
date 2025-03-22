@@ -1,10 +1,8 @@
-import TwoFactorPage from '@/components/auth/twoFactor'
-import React from 'react'
+import TwoFactorPage from "@/components/auth/twoFactor";
+import React from "react";
 
 function page() {
-  return (
-    <TwoFactorPage />
-  )
+  return <TwoFactorPage />;
 }
 
-export default page
+export default page;

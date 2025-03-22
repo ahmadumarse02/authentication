@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function PaymentVoucherPage() {
-  return (
-    <div>PaymentVoucherPage</div>
-  )
+  return <div>PaymentVoucherPage</div>;
 }
 
-export default PaymentVoucherPage
+export default PaymentVoucherPage;

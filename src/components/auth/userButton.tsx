@@ -8,13 +8,13 @@ import { signIn } from "next-auth/react";
 export const UserButton = () => {
   const { data: session } = useSession();
 
-    const handleSignOut = () => {
-        signOut();
-    };
+  const handleSignOut = () => {
+    signOut();
+  };
 
-    function handleSignIn() {
-        signIn();
-    }
+  function handleSignIn() {
+    signIn();
+  }
 
   return (
     <div>

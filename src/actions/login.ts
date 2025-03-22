@@ -38,21 +38,21 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
       if (!twoFactorToken || twoFactorToken.token !== code) {
         return { error: "Invalid code!" };
       }
-  
+
       const hasExpired = new Date(twoFactorToken.expires) < new Date();
       if (hasExpired) {
         return { error: "Code expired!" };
       }
-  
+
       await prisma.twoFactorToken.delete({
         where: { id: twoFactorToken.id },
       });
-  
+
       // Delete existing confirmation if it exists
       await prisma.twoFactorConfirmation.deleteMany({
         where: { userId: existingUser.id },
       });
-  
+
       // Create a new confirmation
       await prisma.twoFactorConfirmation.create({
         data: {
@@ -62,7 +62,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
     } else {
       const twoFactorToken = await generateTwoFactorToken(existingUser.email);
       await sendTwoFactorTokenEmail(twoFactorToken.email, twoFactorToken.token);
-  
+
       return { twoFactor: true, email: existingUser.email };
     }
   }

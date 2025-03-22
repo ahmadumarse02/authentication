@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useTransition, useState } from "react";
-import * as z from "zod"
+import * as z from "zod";
 import CardWrapper from "@/components/auth/cardWrapper";
 import { LoginSchema } from "@/schema";
 import { useForm } from "react-hook-form";
