@@ -247,18 +247,9 @@ export default function StaffForm() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Human Resource Dept.">
-                              Human Resources Dept.
-                            </SelectItem>
-                            <SelectItem value="Management">
-                              Management
-                            </SelectItem>
-                            <SelectItem value="HOD I.T">
-                              Pepoles and Operations
-                            </SelectItem>
-                            <SelectItem value="HOD Accounts">
-                              Accounts
-                            </SelectItem>
+                            <SelectItem value="hr">Admin</SelectItem>
+                            <SelectItem value="operations">Account</SelectItem>
+                            <SelectItem value="it">IT</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
