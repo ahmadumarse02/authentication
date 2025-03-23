@@ -55,7 +55,7 @@ model Staff {
   designation   String   @db.VarChar(50)
   staffId       String?  @db.VarChar(50)
   officialEmail String?  @db.VarChar(255)
-  imageUrl      String?  @db.VarChar(255) // Stores the path to the uploaded image
+  imageUrl      String?  @db.VarChar(255)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
