@@ -292,9 +292,6 @@ export default function StaffForm() {
           </div>
         </div>
       </div>
-      <p className="text-[#383838] text-center mt-20">
-        Copyright © 2022 Relia Energy. All Rights Reserved
-      </p>
     </>
   );
 }

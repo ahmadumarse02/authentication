@@ -23,9 +23,6 @@ export default function Dashboard() {
           <PaymentVouchersTable />
         </div>
       </div>
-      <p className="text-center mt-[72px] text-sm text-[#383838] pb-4">
-        Copyright © 2022 Relia Energy. All Rights Reserved
-      </p>
     </div>
   );
 }
