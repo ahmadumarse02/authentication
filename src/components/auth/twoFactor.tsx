@@ -1,4 +1,3 @@
-// src/app/two-factor/page.tsx
 "use client";
 
 import React, { useTransition, useState } from "react";
@@ -68,7 +67,7 @@ const TwoFactorPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>2FA Code</FormLabel>
-                  <FormControl>
+                  <FormControl>p[]
                     <Input
                       placeholder="Enter your 2FA code"
                       {...field}
