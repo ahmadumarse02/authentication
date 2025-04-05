@@ -1,7 +1,7 @@
 import Credentials from "next-auth/providers/credentials";
 import { NextAuthConfig } from "next-auth";
-import { LoginSchema } from "./schema";
-import { getUserByEmail } from "./data/user";
+import { LoginSchema } from "./schema/auth";
+import { getUserByEmail } from "./data/User";
 import bcrypt from "bcryptjs";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/db";

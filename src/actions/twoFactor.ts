@@ -1,7 +1,7 @@
 "use server";
 
 import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
-import { getUserByEmail } from "@/data/user";
+import { getUserByEmail } from "@/data/User";
 import { prisma } from "@/lib/db";
 import { auth } from "@/auth";
 

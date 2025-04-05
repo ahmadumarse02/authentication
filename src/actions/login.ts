@@ -4,7 +4,7 @@ import * as z from "zod";
 import { LoginSchema } from "@/schema/auth";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
-import { getUserByEmail } from "@/data/user";
+import { getUserByEmail } from "@/data/User";
 import { generateTwoFactorToken } from "@/lib/tokens";
 import { sendTwoFactorTokenEmail } from "@/lib/email";
 import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";

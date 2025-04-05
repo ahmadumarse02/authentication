@@ -5,7 +5,7 @@ import { assets } from "@/assets/data/assets";
 import Image from "next/image";
 import Header from "@/components/dashboard/Header";
 
-export function NotificationPage() {
+function NotificationPage() {
   return (
     <>
      <Header

@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import { ResetSchema } from "@/schema/auth";
-import { getUserByEmail } from "@/data/user";
+import { getUserByEmail } from "@/data/User";
 import { generateTwoFactorToken } from "@/lib/tokens";
 import { sendTwoFactorTokenEmail } from "@/lib/email";
 

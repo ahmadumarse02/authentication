@@ -1,8 +1,8 @@
-import { getUserById } from "@/data/user";
+import { getUserById } from "@/data/User";
 import NextAuth from "next-auth";
 import { prisma } from "@/lib/db";
 import authConfig from "@/auth.config";
-import { getTwoFactorConfirmationByUserId } from "@/data/twoFactorConfirmation";
+import { getTwoFactorConfirmationByUserId } from "@/data/TwoFactorConfirmation";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   events: {
