@@ -35,7 +35,7 @@ export function SearchHeader() {
             </SelectContent>
           </Select>
         </div>
-        <Link href="/staff/add">
+        <Link href="/payment-voucher/create">
           <Button className="bg-gradient-custom w-full max-w-[180px] h-[46px]">
           Create Payment Voucher
           </Button>
