@@ -1,7 +1,11 @@
 import React from "react";
 
 function CircularsPage() {
-  return <div>CircularsPage</div>;
+  return (
+    <>
+    
+    </>
+  )
 }
 
 export default CircularsPage;

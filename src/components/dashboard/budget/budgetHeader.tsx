@@ -13,7 +13,7 @@ export function BudgetHeader() {
         </div>
         <Link href="/office-budget/create">
           <Button className="bg-gradient-custom w-full max-w-[180px] h-[46px]">
-            Add New memo
+            Add New budget
           </Button>
         </Link>
       </CardContent>
