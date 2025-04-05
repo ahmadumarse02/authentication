@@ -48,9 +48,7 @@ export function MultiSelect({
           aria-expanded={open}
           className="w-full justify-between"
         >
-          {selected.length > 0
-            ? `${selected.length} selected`
-            : placeholder}
+          {selected.length > 0 ? `${selected.length} selected` : placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

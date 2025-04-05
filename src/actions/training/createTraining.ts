@@ -15,10 +15,8 @@ export async function createTraining(formData: FormData) {
       staffIds: JSON.parse(formData.get("staffIds") as string) as string[],
     };
 
-    // Validate with Zod
     const validatedData = trainingFormSchema.parse(rawData);
 
-    // Create training in database
     await prisma.training.create({
       data: {
         description: validatedData.description,
@@ -32,7 +30,10 @@ export async function createTraining(formData: FormData) {
     });
 
     revalidatePath("/trainings");
-    return { success: true, message: "Training request submitted successfully!" };
+    return {
+      success: true,
+      message: "Training request submitted successfully!",
+    };
   } catch (error) {
     console.error("Error creating training:", error);
     return { success: false, message: "Failed to submit training request" };

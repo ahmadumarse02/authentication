@@ -48,12 +48,10 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
         where: { id: twoFactorToken.id },
       });
 
-      // Delete existing confirmation if it exists
       await prisma.twoFactorConfirmation.deleteMany({
         where: { userId: existingUser.id },
       });
 
-      // Create a new confirmation
       await prisma.twoFactorConfirmation.create({
         data: {
           userId: existingUser.id,

@@ -4,14 +4,14 @@ import Header from "@/components/dashboard/Header";
 
 function CapacityBuildingPage() {
   return (
-  <>
-   <Header
-          title="Capacity Building"
-          description="Create and submit request for staff training"
-        />
-  <TrainingForm />
-  </>
-  )
+    <>
+      <Header
+        title="Capacity Building"
+        description="Create and submit request for staff training"
+      />
+      <TrainingForm />
+    </>
+  );
 }
 
 export default CapacityBuildingPage;

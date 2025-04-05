@@ -17,7 +17,11 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { createBudget } from "@/actions/budget/createBudget";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Calendar1Icon, ChevronLeft } from "lucide-react";
 import Header from "@/components/dashboard/Header";
 import { format } from "date-fns";
@@ -60,7 +64,6 @@ export default function BudgetForm() {
           <h1 className="text-xl font-bold">Add a New Staff</h1>
         </div>
         <div className="flex">
-
           <div className="p-4 w-full mx-auto">
             <h1 className="text-2xl font-bold mb-6">Staff Information</h1>
             <Form {...form}>
@@ -86,7 +89,7 @@ export default function BudgetForm() {
                       <FormItem>
                         <FormLabel>Budget description</FormLabel>
                         <FormControl>
-                          <Input placeholder="budget description" {...field}  />
+                          <Input placeholder="budget description" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

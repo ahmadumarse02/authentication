@@ -1,10 +1,8 @@
-import BudgetForm from '@/components/dashboard/budget/BudgetForm'
-import React from 'react'
+import BudgetForm from "@/components/dashboard/budget/BudgetForm";
+import React from "react";
 
 function budgetPage() {
-  return (
-    <BudgetForm />
-  )
+  return <BudgetForm />;
 }
 
-export default budgetPage
+export default budgetPage;

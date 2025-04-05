@@ -19,15 +19,23 @@ function PayrollPage() {
       </div>
       <Card className="mt-10">
         <div className="flex pl-12 gap-5">
-          <Link href="/payroll/salary-breakdown"><p>Salary Breakdown</p></Link>
-          <Link href="/payroll/salary-breakdown"><p>Tax Defination</p></Link>
-          <Link href="/payroll/salary-breakdown"><p>PaySlip</p></Link>
-          <Link href="/payroll"><p>payroll</p></Link>
+          <Link href="/payroll/salary-breakdown">
+            <p>Salary Breakdown</p>
+          </Link>
+          <Link href="/payroll/salary-breakdown">
+            <p>Tax Defination</p>
+          </Link>
+          <Link href="/payroll/salary-breakdown">
+            <p>PaySlip</p>
+          </Link>
+          <Link href="/payroll">
+            <p>payroll</p>
+          </Link>
         </div>
       </Card>
       <PayrollTable />
     </>
-  )
+  );
 }
 
 export default PayrollPage;

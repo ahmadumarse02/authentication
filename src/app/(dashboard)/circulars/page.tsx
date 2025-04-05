@@ -5,10 +5,13 @@ import React from "react";
 function CircularsPage() {
   return (
     <>
-    <Header title="circulars" description="Search for  and view all circulars"/>
-    <CircularHeader />
+      <Header
+        title="circulars"
+        description="Search for  and view all circulars"
+      />
+      <CircularHeader />
     </>
-  )
+  );
 }
 
 export default CircularsPage;

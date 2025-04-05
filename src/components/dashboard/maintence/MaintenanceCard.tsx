@@ -1,5 +1,5 @@
 // components/MaintenanceCard.tsx
-import React from 'react';
+import React from "react";
 
 interface MaintenanceTask {
   date: string;

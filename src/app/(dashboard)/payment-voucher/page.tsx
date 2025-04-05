@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/components/dashboard/Header"
+import Header from "@/components/dashboard/Header";
 import { SearchHeader } from "@/components/dashboard/paymentVoucher/SearchHeader";
 
 function PaymentVoucherPage() {
@@ -11,7 +11,7 @@ function PaymentVoucherPage() {
       />
       <SearchHeader />
     </>
-  )
+  );
 }
 
 export default PaymentVoucherPage;

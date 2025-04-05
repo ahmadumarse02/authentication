@@ -13,4 +13,3 @@ export const assets = {
   logo,
   avatar,
 };
-

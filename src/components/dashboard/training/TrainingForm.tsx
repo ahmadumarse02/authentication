@@ -2,7 +2,10 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { trainingFormSchema, TrainingFormValues } from "@/schema/trainingSchema";
+import {
+  trainingFormSchema,
+  TrainingFormValues,
+} from "@/schema/trainingSchema";
 import {
   Form,
   FormControl,
@@ -16,7 +19,11 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
@@ -52,7 +59,9 @@ const durations = [
 ];
 
 export function TrainingForm() {
-  const [staffOptions, setStaffOptions] = useState<{ value: string, label: string }[]>([]);
+  const [staffOptions, setStaffOptions] = useState<
+    { value: string; label: string }[]
+  >([]);
   const [state, formAction] = useFormState(
     (state, formData: FormData) => createTraining(formData),
     null
@@ -70,12 +79,14 @@ export function TrainingForm() {
   // Fetch staff members
   useEffect(() => {
     async function loadStaff() {
-      const response = await fetch('/api/staff');
+      const response = await fetch("/api/staff");
       const staff = await response.json();
-      setStaffOptions(staff.map((s: { id: number; name: string }) => ({
-        value: s.id.toString(),
-        label: s.name,
-      })));
+      setStaffOptions(
+        staff.map((s: { id: number; name: string }) => ({
+          value: s.id.toString(),
+          label: s.name,
+        }))
+      );
     }
     loadStaff();
   }, []);
@@ -150,7 +161,6 @@ export function TrainingForm() {
                 </FormItem>
               )}
             />
-
 
             {/* Training Type and Mode */}
             <FormField
@@ -252,10 +262,14 @@ export function TrainingForm() {
 
           {/* Form Submission */}
           <div className="flex gap-4">
-            <Button type="button" variant="default" className="bg-gradient-custom">
+            <Button
+              type="button"
+              variant="default"
+              className="bg-gradient-custom"
+            >
               Save Draft
             </Button>
-            <Button type="submit"  disabled={pending} variant="outline">
+            <Button type="submit" disabled={pending} variant="outline">
               {pending ? "Submitting..." : "Submit Request"}
             </Button>
           </div>

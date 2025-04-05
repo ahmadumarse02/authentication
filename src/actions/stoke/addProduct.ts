@@ -17,17 +17,20 @@ export async function addProduct(formData: FormData) {
       supplier: formData.get("supplier")?.toString() || "",
       productId: formData.get("productId")?.toString() || "",
       quantity: Number(formData.get("quantity")) || 0,
-      image: formData.get("image") instanceof File ? formData.get("image") : null,
+      image:
+        formData.get("image") instanceof File ? formData.get("image") : null,
     };
 
-    // Validate with Zod
     const result = productFormSchema.safeParse(data);
     if (!result.success) {
-      return { success: false, message: "Validation failed", errors: result.error.errors };
+      return {
+        success: false,
+        message: "Validation failed",
+        errors: result.error.errors,
+      };
     }
     const validatedData = result.data;
 
-    // Handle file upload
     let imageUrl = null;
     if (validatedData.image) {
       const image = validatedData.image;
@@ -35,7 +38,10 @@ export async function addProduct(formData: FormData) {
       const MAX_SIZE = 2 * 1024 * 1024; // 2MB
 
       if (!ALLOWED_TYPES.includes(image.type)) {
-        return { success: false, message: "Only JPG, JPEG, and PNG files are allowed" };
+        return {
+          success: false,
+          message: "Only JPG, JPEG, and PNG files are allowed",
+        };
       }
 
       if (image.size > MAX_SIZE) {
@@ -57,10 +63,8 @@ export async function addProduct(formData: FormData) {
       imageUrl = `/product-images/${fileName}`;
     }
 
-    // Calculate total amount
     const totalAmount = validatedData.unitPrice * validatedData.quantity;
 
-    // Create product
     const newProduct = await prisma.product.create({
       data: {
         name: validatedData.name,
@@ -79,9 +83,11 @@ export async function addProduct(formData: FormData) {
     }
 
     return { success: true, message: "Product added successfully!" };
-
   } catch (error) {
-    console.error("Detailed error:", error instanceof Error ? error.message : error);
+    console.error(
+      "Detailed error:",
+      error instanceof Error ? error.message : error
+    );
     return {
       success: false,
       message: error instanceof Error ? error.message : "Failed to add product",

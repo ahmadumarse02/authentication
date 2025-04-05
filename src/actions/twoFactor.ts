@@ -26,19 +26,16 @@ export const verifyTwoFactorToken = async (code: string, email: string) => {
     where: { id: twoFactorToken.id },
   });
 
-  // Delete existing confirmation if it exists
   await prisma.twoFactorConfirmation.deleteMany({
     where: { userId: user.id },
   });
 
-  // Create a new confirmation
   await prisma.twoFactorConfirmation.create({
     data: {
       userId: user.id,
     },
   });
 
-  // Update the session to mark the user as authenticated
   const session = await auth();
   if (session) {
     if (session.user) {

@@ -4,9 +4,9 @@ import React from "react";
 function CreatePage() {
   return (
     <>
-    <CircularsForm />
+      <CircularsForm />
     </>
-  )
+  );
 }
 
 export default CreatePage;

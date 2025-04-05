@@ -30,7 +30,11 @@ import Link from "next/link";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export default function MemoForm() {
@@ -54,7 +58,7 @@ export default function MemoForm() {
       if (value !== undefined && value !== null) {
         if (value instanceof Date) {
           formData.append(key, value.toISOString());
-        } else if (typeof value === 'boolean') {
+        } else if (typeof value === "boolean") {
           formData.append(key, value.toString());
         } else {
           formData.append(key, value);
@@ -176,7 +180,9 @@ export default function MemoForm() {
                           <SelectContent>
                             <SelectItem value="APPROVAL">Approval</SelectItem>
                             <SelectItem value="REVIEW">Review</SelectItem>
-                            <SelectItem value="INFORMATION">Information</SelectItem>
+                            <SelectItem value="INFORMATION">
+                              Information
+                            </SelectItem>
                             <SelectItem value="OTHER">Other</SelectItem>
                           </SelectContent>
                         </Select>
@@ -215,7 +221,8 @@ export default function MemoForm() {
                               selected={field.value}
                               onSelect={field.onChange}
                               disabled={(date) =>
-                                date > new Date() || date < new Date("1900-01-01")
+                                date > new Date() ||
+                                date < new Date("1900-01-01")
                               }
                               initialFocus
                             />
@@ -264,9 +271,13 @@ export default function MemoForm() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="FINANCE">Finance Department</SelectItem>
+                            <SelectItem value="FINANCE">
+                              Finance Department
+                            </SelectItem>
                             <SelectItem value="HR">HR Department</SelectItem>
-                            <SelectItem value="MANAGEMENT">Management</SelectItem>
+                            <SelectItem value="MANAGEMENT">
+                              Management
+                            </SelectItem>
                             <SelectItem value="OTHER">Other</SelectItem>
                           </SelectContent>
                         </Select>
@@ -293,7 +304,9 @@ export default function MemoForm() {
                             <SelectItem value="PDF">PDF</SelectItem>
                             <SelectItem value="IMAGE">Image</SelectItem>
                             <SelectItem value="DOCUMENT">Document</SelectItem>
-                            <SelectItem value="SPREADSHEET">Spreadsheet</SelectItem>
+                            <SelectItem value="SPREADSHEET">
+                              Spreadsheet
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />

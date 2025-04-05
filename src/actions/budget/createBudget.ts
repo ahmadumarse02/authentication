@@ -14,10 +14,8 @@ export async function createBudget(formData: FormData) {
       amount: parseFloat(formData.get("amount") as string),
     };
 
-    // Validate with Zod
     const validatedData = budgetFormSchema.parse(rawData);
 
-    // Check if budget number already exists
     const existingBudget = await prisma.budget.findUnique({
       where: { budgetNumber: validatedData.budgetNumber },
     });
@@ -26,7 +24,6 @@ export async function createBudget(formData: FormData) {
       return { success: false, message: "Budget number already exists" };
     }
 
-    // Create new budget
     await prisma.budget.create({
       data: {
         budgetNumber: validatedData.budgetNumber,
@@ -37,7 +34,7 @@ export async function createBudget(formData: FormData) {
       },
     });
 
-    revalidatePath("/budgets"); // Update any cached data
+    revalidatePath("/budgets");
     return { success: true, message: "Budget created successfully!" };
   } catch (error) {
     console.error("Error creating budget:", error);

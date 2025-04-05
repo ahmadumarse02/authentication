@@ -5,7 +5,6 @@ import { prisma } from "@/lib/db";
 
 export async function createMemo(formData: FormData) {
   try {
-    // Extract form data
     const title = formData.get("title") as string;
     const sender = formData.get("sender") as string;
     const action = formData.get("action") as string;
@@ -16,10 +15,8 @@ export async function createMemo(formData: FormData) {
     const attachmentType = formData.get("attachmentType") as string | null;
     const attachmentFile = formData.get("attachment") as File | null;
 
-    // Parse date
     const date = new Date(dateString);
 
-    // Handle file upload if attachment exists
     let attachmentPath = null;
     if (attachmentFile && attachmentFile.size > 0) {
       const uploadDir = path.join(process.cwd(), "public", "memo-attachments");
@@ -37,7 +34,6 @@ export async function createMemo(formData: FormData) {
       attachmentPath = `/memo-attachments/${fileName}`;
     }
 
-    // Create memo in database
     await prisma.memo.create({
       data: {
         title,
@@ -48,7 +44,7 @@ export async function createMemo(formData: FormData) {
         sentTo,
         hasVoucher,
         attachment: attachmentPath,
-        ...(attachmentType && { attachmentType }), // Only include if exists
+        ...(attachmentType && { attachmentType }),
       },
     });
 
