@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { z } from "zod";
-import { staffFormSchema } from "@/schema/staffFormSchema";
+import { staffFormSchema } from "@/schema/StaffFormSchema";
 import { getAllStaff } from "@/actions/staff/allStaff";
 
 export default function StaffTable() {

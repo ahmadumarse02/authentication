@@ -4,7 +4,7 @@ import React from "react";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { budgetFormSchema, BudgetFormValues } from "@/schema/budgetSchema";
+import { budgetFormSchema, BudgetFormValues } from "@/schema/BudgetSchema";
 import {
   Form,
   FormControl,
@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { createBudget } from "@/actions/budget/createBudget";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar1Icon, ChevronLeft } from "lucide-react";
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import Link from "next/link";

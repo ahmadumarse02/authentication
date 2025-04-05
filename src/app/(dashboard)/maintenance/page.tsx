@@ -1,6 +1,6 @@
-import Header from "@/components/dashboard/header";
-import { MaintenceCard } from "@/components/dashboard/maintence/header";
-import MaintenceCards from "@/components/dashboard/maintence/maintenceHeader";
+import Header from "@/components/dashboard/Header";
+import { MaintenceCard } from "@/components/dashboard/maintence/Header";
+import MaintenceCards from "@/components/dashboard/maintence/MaintenceHeader";
 import { Calendar } from "@/components/ui/calendar";
 import { Card } from "@/components/ui/card";
 import React from "react";

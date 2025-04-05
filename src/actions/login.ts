@@ -1,7 +1,7 @@
 "use server";
 
 import * as z from "zod";
-import { LoginSchema } from "@/schema";
+import { LoginSchema } from "@/schema/auth";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { getUserByEmail } from "@/data/user";

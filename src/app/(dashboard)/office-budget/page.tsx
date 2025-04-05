@@ -1,6 +1,6 @@
-import BudgetDetailCards from "@/components/dashboard/budget/budgetDetail";
-import { BudgetHeader } from "@/components/dashboard/budget/budgetHeader";
-import Header from "@/components/dashboard/header";
+import BudgetDetailCards from "@/components/dashboard/budget/BudgetDetail";
+import { BudgetHeader } from "@/components/dashboard/budget/BudgetHeader";
+import Header from "@/components/dashboard/Header";
 import React from "react";
 
 function OfficeBudgetPage() {

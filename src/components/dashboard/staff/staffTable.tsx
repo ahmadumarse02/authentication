@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/table";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { staffFormSchema } from "@/schema/staffFormSchema";
+import { staffFormSchema } from "@/schema/StaffFormSchema";
 import Link from "next/link";
 
 export default function StaffTable() {

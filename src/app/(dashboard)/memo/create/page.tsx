@@ -3,7 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { memoSchema, MemoFormValues } from "@/schema/memoSchema";
+import { memoSchema, MemoFormValues } from "@/schema/MemoSchema";
 import {
   Form,
   FormControl,
@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 import { createMemo } from "@/actions/memo/memo";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, CalendarIcon } from "lucide-react";
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 import Link from "next/link";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";

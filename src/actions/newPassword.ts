@@ -2,7 +2,7 @@
 
 import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
 import { getUserByEmail } from "@/data/user";
-import { NewPasswordSchema } from "@/schema";
+import { NewPasswordSchema } from "@/schema/auth";
 import * as z from "zod";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/db";

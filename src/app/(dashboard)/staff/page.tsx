@@ -1,6 +1,6 @@
-import StaffTable from "@/components/dashboard//staff/staffTable";
-import Header from "@/components/dashboard/header";
-import { QuickSearchStaffCard } from "@/components/dashboard/staff/staffHeader";
+import StaffTable from "@/components/dashboard//staff/StaffTable";
+import Header from "@/components/dashboard/Header";
+import { QuickSearchStaffCard } from "@/components/dashboard/staff/StaffHeader";
 import { prisma } from "@/lib/db";
 import React from "react";
 

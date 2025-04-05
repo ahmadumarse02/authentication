@@ -1,5 +1,5 @@
-import { CircularHeader } from "@/components/dashboard/circulars/circularsHeader";
-import Header from "@/components/dashboard/header";
+import { CircularHeader } from "@/components/dashboard/circulars/CircularsHeader";
+import Header from "@/components/dashboard/Header";
 import React from "react";
 
 function CircularsPage() {

@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import bcrypt from "bcryptjs";
-import { RegisterSchema } from "@/schema";
+import { RegisterSchema } from "@/schema/auth";
 import { prisma } from "@/lib/db";
 import { getUserByEmail } from "@/data/user";
 import { generateTwoFactorToken } from "@/lib/tokens";

@@ -1,4 +1,3 @@
-// src/actions/auth/two-factor.ts
 "use server";
 
 import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";

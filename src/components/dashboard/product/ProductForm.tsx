@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { productFormSchema, ProductFormValues } from "@/schema/productSchema";
+import { productFormSchema, ProductFormValues } from "@/schema/ProductSchema";
 import {
     Form,
     FormControl,

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useTransition, useState } from "react";
-import CardWrapper from "@/components/auth/cardWrapper";
+import CardWrapper from "@/components/auth/CardWrapper";
 import * as z from "zod";
-import { NewPasswordSchema } from "@/schema";
+import { NewPasswordSchema } from "@/schema/auth";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {

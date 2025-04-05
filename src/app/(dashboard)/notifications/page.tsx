@@ -3,7 +3,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { assets } from "@/assets/data/assets";
 import Image from "next/image";
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 
 export function NotificationPage() {
   return (

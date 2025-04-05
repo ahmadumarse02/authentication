@@ -1,4 +1,4 @@
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 import ProductForm from "@/components/dashboard/product/ProductForm";
 import React from "react";
 

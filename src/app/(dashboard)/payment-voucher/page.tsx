@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "@/components/dashboard/header"
-import { SearchHeader } from "@/components/dashboard/paymentVoucher/searchHeader";
+import Header from "@/components/dashboard/Header"
+import { SearchHeader } from "@/components/dashboard/paymentVoucher/SearchHeader";
 
 function PaymentVoucherPage() {
   return (

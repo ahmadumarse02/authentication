@@ -4,7 +4,7 @@ import React from "react";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { staffFormSchema, StaffFormValues } from "@/schema/staffFormSchema";
+import { staffFormSchema, StaffFormValues } from "@/schema/StaffFormSchema";
 import {
   Form,
   FormControl,
@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 import { addStaff } from "@/actions/staff/staff";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft } from "lucide-react";
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 import Link from "next/link";
 
 export default function StaffForm() {

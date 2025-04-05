@@ -1,10 +1,10 @@
 "use client";
 
-import MemoTable from "@/components/dashboard/dashboard/memo";
-import PaymentVouchersTable from "@/components/dashboard/dashboard/paymentVouchersTable";
-import StaffTable from "@/components/dashboard/dashboard/staffList";
-import StatsCards from "@/components/dashboard/dashboard/startCard";
-import Header from "@/components/dashboard/header";
+import MemoTable from "@/components/dashboard/dashboard/Memo";
+import PaymentVouchersTable from "@/components/dashboard/dashboard/PaymentVouchersTable";
+import StaffTable from "@/components/dashboard/dashboard/StaffList";
+import StatsCards from "@/components/dashboard/dashboard/StartCard";
+import Header from "@/components/dashboard/Header";
 
 export default function Dashboard() {
   return (

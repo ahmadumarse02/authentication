@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 import Link from "next/link";
 
 export default function StaffForm() {

@@ -1,6 +1,6 @@
 import React from "react";
 import { TrainingForm } from "@/components/dashboard/training/TrainingForm";
-import Header from "@/components/dashboard/header";
+import Header from "@/components/dashboard/Header";
 
 function CapacityBuildingPage() {
   return (

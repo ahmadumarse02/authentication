@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "@/components/dashboard/header";
-import StatsCards from "@/components/dashboard/dashboard/startCard";
+import Header from "@/components/dashboard/Header";
+import StatsCards from "@/components/dashboard/dashboard/StartCard";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
-import PayrollTable from "@/components/dashboard/payroll/payrollTable";
-import { PayrollChart } from "@/components/dashboard/payrollVocture/chart";
+import PayrollTable from "@/components/dashboard/payroll/PayrollTable";
+import { PayrollChart } from "@/components/dashboard/payrollVocture/Chart";
 
 function PayrollPage() {
   return (

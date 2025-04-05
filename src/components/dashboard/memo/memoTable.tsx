@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getAllMemo } from "@/actions/memo/allMemo"; // You'll need to create this
+import { getAllMemo } from "@/actions/memo/allMemo";
 import {
   Table,
   TableBody,
@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Check, X } from "lucide-react";
 
 export default function MemoTable() {
   interface Memo {

@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { createCircular } from "@/actions/circular/createCircular";
 import { useEffect } from "react";
 import { toast } from "sonner";
-import Header from "../header";
+import Header from "../Header";
 
 export function CircularsForm() {
   const [state, formAction, isPending] = useActionState(createCircular, null);

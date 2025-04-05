@@ -1,4 +1,4 @@
-import TwoFactorPage from "@/components/auth/twoFactor";
+import TwoFactorPage from "@/components/auth/TwoFactor";
 import React from "react";
 
 function page() {
