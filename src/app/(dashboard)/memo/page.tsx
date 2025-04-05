@@ -1,7 +1,22 @@
-import React from "react";
+import React from 'react'
+import Header from "@/components/dashboard/header";
+import { MemoHeader } from '@/components/dashboard/memo/header';
+import MemoTable from '@/components/dashboard/memo/memoTable';
 
-function MemoPage() {
-  return <div>MemoPage</div>;
+function memoPage() {
+  return (
+    <>
+    <div className="h-screen">
+
+      <Header
+        title="All Memo"
+        description="View, search for and add new memo"
+        />
+      <MemoHeader />
+      <MemoTable />
+        </div>
+    </>
+  )
 }
 
-export default MemoPage;
+export default memoPage

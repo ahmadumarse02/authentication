@@ -59,3 +59,44 @@ model Staff {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
+
+model Memo {
+  id            Int      @id @default(autoincrement())
+  title         String
+  sender        String
+  action        String
+  date          DateTime
+  body          String
+  sentTo        String
+  hasVoucher    Boolean  @default(false)
+  attachment    String?   // Stores file path
+  attachmentType String?  // Add this new field
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Product {
+  id            Int      @id @default(autoincrement())
+  name          String
+  category      String
+  unitPrice     Float
+  supplier      String
+  productId     String   @unique
+  quantity      Int
+  totalAmount   Float
+  imageUrl      String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Budget {
+  id              Int      @id @default(autoincrement())
+  budgetNumber    String   @unique
+  date            DateTime
+  description     String
+  receivingOffice String
+  amount          Float
+  currency        String   @default("NGN")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

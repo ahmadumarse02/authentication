@@ -1,7 +1,16 @@
+import Header from "@/components/dashboard/header";
+import ProductForm from "@/components/dashboard/product/ProductForm";
 import React from "react";
 
 function StocksPage() {
-  return <div>StocksPage</div>;
+  return <>
+  <Header
+          title="All Stock"
+          description="View, search for and add new staff"
+        />
+
+        <ProductForm />
+  </>
 }
 
 export default StocksPage;

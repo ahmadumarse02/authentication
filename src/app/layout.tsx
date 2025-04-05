@@ -1,4 +1,4 @@
-"use server";
+import { Toaster } from "@/components/ui/sonner"
 
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
@@ -11,10 +11,13 @@ export default async function RootLayout({
 }>) {
   const session = await auth();
   return (
+    <>
     <SessionProvider session={session}>
-      <html lang="en">
-        <body>{children}</body>
+      <html lang="en" className="hydrated">
+        <body cz-shortcut-listen="true">{children}</body>
       </html>
     </SessionProvider>
+    <Toaster position="top-right" richColors expand visibleToasts={3}/>
+    </>
   );
 }
