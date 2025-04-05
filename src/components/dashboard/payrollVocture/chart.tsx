@@ -34,7 +34,7 @@ export function PayrollChart() {
             <CardHeader>
                 <CardTitle>Annual Payroll Summary</CardTitle>
             </CardHeader>
-            <CardContent className="h-[400px]">
+            <CardContent className="h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
                         data={data}
@@ -56,9 +56,9 @@ export function PayrollChart() {
                             labelFormatter={(label) => `Month: ${label}`}
                         />
                         <Legend />
-                        <Bar dataKey="netSalary" fill="#8884d8" name="Net salary" stackId="a" />
-                        <Bar dataKey="tax" fill="#82ca9d" name="Tax" stackId="a" />
-                        <Bar dataKey="loan" fill="#ffc658" name="Loan" stackId="a" />
+                        <Bar dataKey="netSalary" fill="#8884d8" name="Net salary" stackId="a"   barSize={10} />
+                        <Bar dataKey="tax" fill="#82ca9d" name="Tax" stackId="a"   barSize={10} />
+                        <Bar dataKey="loan" fill="#ffc658" name="Loan" stackId="a"   barSize={10} />
                     </BarChart>
                 </ResponsiveContainer>
             </CardContent>

@@ -4,6 +4,7 @@ import StatsCards from "@/components/dashboard/dashboard/startCard";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import PayrollTable from "@/components/dashboard/payroll/payrollTable";
+import { PayrollChart } from "@/components/dashboard/payrollVocture/chart";
 
 function PayrollPage() {
   return (
@@ -12,7 +13,10 @@ function PayrollPage() {
         title="Payment Vouchers"
         description="Create account for a new staff"
       />
-      <StatsCards />
+      <div className="flex flex-1 gap-5">
+        <StatsCards />
+        <PayrollChart />
+      </div>
       <Card className="mt-10">
         <div className="flex pl-12 gap-5">
           <Link href="/payroll/salary-breakdown"><p>Salary Breakdown</p></Link>
