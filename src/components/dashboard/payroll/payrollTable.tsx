@@ -13,18 +13,16 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function PayrollTable() {
-
-
   return (
     <div className="p-4 bg-white rounded-md shadow-md h-[650px] overflow-y-auto mt-12">
-        <div className="flex justify-between py-4">
-      <h1 className="text-2xl font-bold mb-4">Sallary Defination</h1>
-      <Link href="/payroll/add">
+      <div className="flex justify-between py-4">
+        <h1 className="text-2xl font-bold mb-4">Sallary Defination</h1>
+        <Link href="/payroll/add">
           <Button className="bg-gradient-custom w-full max-w-[180px] h-[46px]">
             Create Salary Defination
           </Button>
         </Link>
-        </div>
+      </div>
       <Table>
         <TableCaption>A list of all staff members.</TableCaption>
         <TableHeader>
@@ -41,22 +39,21 @@ export default function PayrollTable() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          
-            <TableRow>
-              <TableCell>id</TableCell>
-              <TableCell>firstName</TableCell>
-              <TableCell>lastName</TableCell>
-              <TableCell>gender</TableCell>
-              <TableCell>staffId</TableCell>
-              <TableCell>phone</TableCell>
-              <TableCell>role</TableCell>
-              <TableCell>designation</TableCell>
-              <TableCell>
-                <Button variant="link">
-                  <Link href="/staff/edit">View more</Link>
-                </Button>
-              </TableCell>
-            </TableRow>
+          <TableRow>
+            <TableCell>id</TableCell>
+            <TableCell>firstName</TableCell>
+            <TableCell>lastName</TableCell>
+            <TableCell>gender</TableCell>
+            <TableCell>staffId</TableCell>
+            <TableCell>phone</TableCell>
+            <TableCell>role</TableCell>
+            <TableCell>designation</TableCell>
+            <TableCell>
+              <Button variant="link">
+                <Link href="/staff/edit">View more</Link>
+              </Button>
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </div>

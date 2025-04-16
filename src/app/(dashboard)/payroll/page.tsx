@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "@/components/dashboard/Header";
-import StatsCards from "@/components/dashboard/dashboard/StartCard";
+import StatsCards from "@/components/dashboard/payroll/StartCards";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import PayrollTable from "@/components/dashboard/payroll/PayrollTable";

@@ -81,13 +81,7 @@ export default function MemoTable() {
               <TableCell>
                 {memo.date ? new Date(memo.date).toLocaleDateString() : "-"}
               </TableCell>
-              <TableCell>
-                {memo.attachment ? (
-                  <p>Yes</p>
-                ) : (
-                  <p>No</p>
-                )}
-              </TableCell>
+              <TableCell>{memo.attachment ? <p>Yes</p> : <p>No</p>}</TableCell>
               <TableCell>{memo.action || "-"}</TableCell>
               <TableCell>
                 <Button variant="link">

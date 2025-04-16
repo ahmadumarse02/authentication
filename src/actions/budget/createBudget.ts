@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/db";
-import { budgetFormSchema } from "@/schema/BudgetSchema";
+import { budgetFormSchema } from "@/schema/budgetSchema";
 import { revalidatePath } from "next/cache";
 
 export async function createBudget(formData: FormData) {

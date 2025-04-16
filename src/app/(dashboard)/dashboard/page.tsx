@@ -1,6 +1,6 @@
 "use client";
 
-import MemoTable from "@/components/dashboard/dashboard/memo";
+import MemoTable from "@/components/dashboard/dashboard/Memo";
 import PaymentVouchersTable from "@/components/dashboard/dashboard/PaymentVouchersTable";
 import StaffTable from "@/components/dashboard/dashboard/StaffList";
 import StatsCards from "@/components/dashboard/dashboard/StartCard";

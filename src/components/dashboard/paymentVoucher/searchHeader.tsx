@@ -37,7 +37,7 @@ export function SearchHeader() {
         </div>
         <Link href="/payment-voucher/create">
           <Button className="bg-gradient-custom w-full max-w-[180px] h-[46px]">
-          Create Payment Voucher
+            Create Payment Voucher
           </Button>
         </Link>
       </CardContent>

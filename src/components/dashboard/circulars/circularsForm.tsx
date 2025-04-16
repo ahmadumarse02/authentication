@@ -3,14 +3,30 @@
 import { useActionState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { circularFormSchema, CircularFormValues } from "@/schema/circularSchema";
+import {
+  circularFormSchema,
+  CircularFormValues,
+} from "@/schema/circularSchema";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from '@/components/ui/input';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { createCircular } from "@/actions/circular/createCircular";
 import { useEffect } from "react";
 import { toast } from "sonner";
@@ -64,8 +80,8 @@ export function CircularsForm() {
         <div className="p-4 w-full mx-auto">
           <h1 className="text-2xl font-bold mb-6">Circular Information</h1>
           <Form {...form}>
-            <form 
-              action={formAction} 
+            <form
+              action={formAction}
               className="space-y-6"
               onSubmit={form.handleSubmit(() => {})} // Enable client-side validation
             >
@@ -103,8 +119,8 @@ export function CircularsForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Sent to</FormLabel>
-                      <Select 
-                        onValueChange={field.onChange} 
+                      <Select
+                        onValueChange={field.onChange}
                         value={field.value}
                         defaultValue="Admin, HR" // Ensure default value
                       >
@@ -134,11 +150,17 @@ export function CircularsForm() {
                     <FormItem>
                       <FormLabel>Date</FormLabel>
                       <FormControl>
-                        <Input 
-                          type="date" 
+                        <Input
+                          type="date"
                           {...field}
-                          value={field.value ? field.value.toISOString().split('T')[0] : ''}
-                          onChange={(e) => field.onChange(new Date(e.target.value))}
+                          value={
+                            field.value
+                              ? field.value.toISOString().split("T")[0]
+                              : ""
+                          }
+                          onChange={(e) =>
+                            field.onChange(new Date(e.target.value))
+                          }
                         />
                       </FormControl>
                       <FormMessage />
@@ -150,7 +172,9 @@ export function CircularsForm() {
                   name="body"
                   render={({ field }) => (
                     <FormItem className="col-span-2">
-                      <FormLabel>Circular message (min 10 characters)</FormLabel>
+                      <FormLabel>
+                        Circular message (min 10 characters)
+                      </FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Enter detailed message..."
@@ -164,9 +188,9 @@ export function CircularsForm() {
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                className="w-full" 
+              <Button
+                type="submit"
+                className="w-full"
                 disabled={isPending || !form.formState.isValid}
               >
                 {isPending ? "Creating..." : "Create Circular"}

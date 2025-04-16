@@ -4,7 +4,7 @@ import React from "react";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { budgetFormSchema, BudgetFormValues } from "@/schema/BudgetSchema";
+import { budgetFormSchema, BudgetFormValues } from "@/schema/budgetSchema";
 import {
   Form,
   FormControl,

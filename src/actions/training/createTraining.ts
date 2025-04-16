@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 import { trainingFormSchema } from "@/schema/trainingSchema";
 import { revalidatePath } from "next/cache";
 
-export async function createTraining(formData: FormData) {
+export async function   createTraining(formData: FormData) {
   try {
     const rawData = {
       description: formData.get("description") as string,

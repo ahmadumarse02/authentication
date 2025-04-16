@@ -14,7 +14,7 @@ export default async function RootLayout({
     <>
       <SessionProvider session={session}>
         <html lang="en" className="hydrated">
-          <body cz-shortcut-listen="true">{children}</body>
+          <body>{children}</body>
         </html>
       </SessionProvider>
       <Toaster position="top-right" richColors expand visibleToasts={3} />

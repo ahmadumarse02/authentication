@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp  } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import Image from "next/image";
 import { assets } from "@/assets/data/assets";
 

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export function BudgetHeader() {
-  return ( 
+  return (
     <Card className="w-full mt-8">
       <CardContent className="flex justify-between items-center">
         <div className="">

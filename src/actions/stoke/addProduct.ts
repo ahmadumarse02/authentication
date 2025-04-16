@@ -2,7 +2,7 @@
 import path from "path";
 import fs from "fs";
 import { prisma } from "@/lib/db";
-import { productFormSchema } from "@/schema/ProductSchema";
+import { productFormSchema } from "@/schema/productSchema";
 
 export async function addProduct(formData: FormData) {
   try {

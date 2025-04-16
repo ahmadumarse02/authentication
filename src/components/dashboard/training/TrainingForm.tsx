@@ -33,7 +33,7 @@ import {
 } from "@/components/ui/select";
 import { MultiSelect } from "@/components/ui/multi-select";
 import { createTraining } from "@/actions/training/createTraining";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState, useFormStatus } from "react-dom";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Calendar1Icon } from "lucide-react";
@@ -62,7 +62,7 @@ export function TrainingForm() {
   const [staffOptions, setStaffOptions] = useState<
     { value: string; label: string }[]
   >([]);
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     (state, formData: FormData) => createTraining(formData),
     null
   );

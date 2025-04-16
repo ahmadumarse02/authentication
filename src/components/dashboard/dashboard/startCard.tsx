@@ -7,7 +7,7 @@ import { assets } from "@/assets/data/assets";
 
 export default function StatsCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-4  gap-4">
       {/* Card 1 */}
       <Card className="p-5 shadow-md">
         <CardContent className="flex flex-col p-0">

@@ -67,7 +67,8 @@ const TwoFactorPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>2FA Code</FormLabel>
-                  <FormControl>p[]
+                  <FormControl>
+                    p[]
                     <Input
                       placeholder="Enter your 2FA code"
                       {...field}
