@@ -7,7 +7,7 @@ import { AuthError } from "next-auth";
 import { getUserByEmail } from "@/data/User";
 import { generateTwoFactorToken } from "@/lib/tokens";
 import { sendTwoFactorTokenEmail } from "@/lib/email";
-import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
+import { getTwoFactorTokenByEmail } from "@/data/TwoFactorToken";
 import { prisma } from "@/lib/db";
 import bcrypt from "bcryptjs";
 

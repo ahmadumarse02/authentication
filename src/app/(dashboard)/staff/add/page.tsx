@@ -4,7 +4,7 @@ import React from "react";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { staffFormSchema, StaffFormValues } from "@/schema/StaffFormSchema";
+import { staffFormSchema, StaffFormValues } from "@/schema/staffFormSchema";
 import {
   Form,
   FormControl,

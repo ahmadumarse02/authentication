@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 import crypto from "crypto";
 
 import { prisma } from "@/lib/db";
-import { gerPasswordResetTokenByEmail } from "@/data/passwordResetToken";
-import { getTwoFactorTokenByEmail } from "@/data/twoFactorToken";
+import { gerPasswordResetTokenByEmail } from "@/data/PasswordResetToken";
+import { getTwoFactorTokenByEmail } from "@/data/TwoFactorToken";
 
 //Generate two Factor Token
 
